@@ -14,7 +14,14 @@ public static class Editor {
     var file = new StringBuilder();
     
     do{
-
+      file.Append(Console.ReadLine());
+      file.Append(Environment.NewLine);
     } while(Console.ReadKey().Key != ConsoleKey.Escape);
+  
+    Console.WriteLine("Deseja salvar o arquivo? (s = sim | n = não)");
+    char option = Convert.ToChar(Console.ReadLine())
+
+    if(option == 's') Console.WriteLine("Salvo");
+    else Console.WriteLine("Não salvo");
   }
 }
