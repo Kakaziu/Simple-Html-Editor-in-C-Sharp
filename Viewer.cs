@@ -18,11 +18,23 @@ public static class Viewer {
     var words = text.Split(" ");
 
     for (int i = 0; i < words.Length; i++) {
+      // var tag = words[i].Substring(1, words[i].IndexOf('>') - 1);
+
       if(htmlTag.IsMatch(words[i])) {
         Console.Write(
           words[i].Substring(1, words[i].IndexOf('>') - 1)
         );
       }
     }
+  }
+
+  public static void IdentifiesTag(string tag) {
+    switch(tag) {
+      case "strong": ReplaceStrong(); break;
+    }
+  }
+
+  public static void ReplaceStrong() {
+
   }
 }
