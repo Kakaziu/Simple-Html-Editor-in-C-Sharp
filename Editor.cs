@@ -19,9 +19,9 @@ public static class Editor {
     } while(Console.ReadKey().Key != ConsoleKey.Escape);
   
     Console.WriteLine("Deseja salvar o arquivo? (s = sim | n = não)");
-    char option = Convert.ToChar(Console.ReadLine())
+    char option = Convert.ToChar(Console.ReadLine());
 
-    if(option == 's') Console.WriteLine("Salvo");
+    if(option == 's') Viewer.Show(file.ToString());
     else Console.WriteLine("Não salvo");
   }
 }

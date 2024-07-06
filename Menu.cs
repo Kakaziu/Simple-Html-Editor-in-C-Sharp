@@ -59,7 +59,7 @@ public static class Menu {
   private static void HandleOptions(short option) {
     switch(option) {
       case 0: System.Environment.Exit(0); break;
-      case 1: Console.WriteLine("Modo editor"); break;
+      case 1: Editor.Show(); break;
       case 2: Console.WriteLine("Modo visualizador"); break;
       default: Menu.Show(); break;
     }
