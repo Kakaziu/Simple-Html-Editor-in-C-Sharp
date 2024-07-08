@@ -14,27 +14,26 @@ public static class Viewer {
   }
 
   public static void Replace(string text) {
-    var htmlTag = new Regex(@"<[^>]+>");
-    var words = text.Split(" ");
+     string patternTag = @"<\s*(\w+)[^>]*>";
+     Match matchTag = Regex.Match(text, patternTag);
 
-    for (int i = 0; i < words.Length; i++) {
-      // var tag = words[i].Substring(1, words[i].IndexOf('>') - 1);
+     if(matchTag.Success) {
+      string tagName = matchTag.Groups[1].Value;
+      string patternText = @"<[^>]+>(.*?)<\/[^>]+>";
+      Match matchText = Regex.Match(text, patternText);
+      string content = matchText.Groups[1].Value;
 
-      if(htmlTag.IsMatch(words[i])) {
-        Console.Write(
-          words[i].Substring(1, words[i].IndexOf('>') - 1)
-        );
-      }
-    }
+      IdentifiesTag(tagName, content);
+     } 
   }
 
-  public static void IdentifiesTag(string tag) {
+  public static void IdentifiesTag(string tag, string text) {
     switch(tag) {
-      case "strong": ReplaceStrong(); break;
+      case "strong": ReplaceStrong(text); break;
     }
   }
 
-  public static void ReplaceStrong() {
+  public static void ReplaceStrong(string text) {
 
   }
 }
